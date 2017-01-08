@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleContainer", "SimpleContainer\SimpleContainer.csproj", "{5EE4A602-4F52-4B29-ABBE-7BF43950A278}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleContainerTests", "SimpleContainerTests\SimpleContainerTests.csproj", "{A1BF73FA-48B3-473F-8E17-924155A5696D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EE4A602-4F52-4B29-ABBE-7BF43950A278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE4A602-4F52-4B29-ABBE-7BF43950A278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE4A602-4F52-4B29-ABBE-7BF43950A278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE4A602-4F52-4B29-ABBE-7BF43950A278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1BF73FA-48B3-473F-8E17-924155A5696D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1BF73FA-48B3-473F-8E17-924155A5696D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1BF73FA-48B3-473F-8E17-924155A5696D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1BF73FA-48B3-473F-8E17-924155A5696D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
