@@ -3,12 +3,11 @@
 //      Copyright (c) 2017 Stand Sure LLC. All rights reserved.
 //  </copyright>
 // -----------------------------------------------------------------------
-using System.Collections.Generic;
 
 namespace SimpleContainerTests
 {
+  using System.Collections.Generic;
   using NUnit.Framework;
-  using System;
   using Container = SimpleContainer.Container;
 
   [TestFixture()]
