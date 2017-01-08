@@ -6,6 +6,7 @@
 
 namespace SimpleContainerTests
 {
+  using System;
   using System.Collections.Generic;
   using NUnit.Framework;
   using Container = SimpleContainer.Container;
@@ -36,6 +37,37 @@ namespace SimpleContainerTests
 
       this.Expect(actual, Is.Not.Null);
     }
+
+    [Test]
+    [ExpectedException(typeof(ArgumentException))]
+    public void Register_Should_Require_Registered_Service_To_Be_An_Interface()
+    {
+      target.Register<string, string>();
+    }
+
+    [Test]
+    public void Register_Should_Require_TServiceProvider_To_Implement_TService()
+    {
+      var type = target.GetType();
+      var registerMethod = type.GetMethod("Register");
+      var genericParameters = registerMethod.GetGenericArguments();
+      var tService = genericParameters[0];
+      var tServiceProvider = genericParameters[1];
+
+      var actual = tServiceProvider.GetInterface(tService.Name);
+      this.Expect(actual, Is.Not.Null);
+    }
+
+    private interface IFooBar { }
+    private class FooBar : IFooBar { private FooBar() { } }
+
+    [Test]
+    [ExpectedException(typeof(ArgumentException))]
+    public void Register_Should_Require_ServiceProvider_To_Have_Ctor()
+    {
+      target.Register<IFooBar, FooBar>();
+    }
+
 
     [Test]
     public void Registered_ServiceProvider_Should_Resolve()

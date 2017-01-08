@@ -20,10 +20,20 @@ namespace SimpleContainer
       this.dependcies = new Dictionary<Type, Type>();
     }
 
-    public void Register<TService, TServiceProvider>() 
+    public void Register<TService, TServiceProvider>()
       where TServiceProvider : TService
       where TService : class
     {
+      if (!typeof(TService).IsInterface)
+      {
+        throw new ArgumentException("TService must be an interface");
+      }
+
+      if (!typeof(TServiceProvider).GetConstructors().Any())
+      {
+        throw new ArgumentException("TServiceProvider must have a public constructor");
+      }
+
       this.dependcies.Add(typeof(TService), typeof(TServiceProvider));
     }
 
@@ -59,7 +69,7 @@ namespace SimpleContainer
     {
       return this.dependcies
                  .Where(kvp => kvp.Key == type)
-                 .Select(kvp => kvp.Value)    
+                 .Select(kvp => kvp.Value)
                  .FirstOrDefault();
     }
 
